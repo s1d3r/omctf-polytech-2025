@@ -521,10 +521,6 @@ USERNAME_NOUNS = [
 ]
 
 
-STATE_FILE = "/home/nobody/.checker_state.json"
-PER_HOST_LIMIT = 6
-
-
 def normalize_host(host: str) -> str:
     if not host.startswith("http"):
         host = f"http://{host}"
@@ -804,43 +800,6 @@ def password_string() -> str:
     return rnd_string(length)
 
 
-def load_state() -> List[UserData]:
-    if not os.path.exists(STATE_FILE):
-        return []
-    try:
-        with open(STATE_FILE, "r", encoding="utf-8") as f:
-            lines = [line.strip() for line in f.readlines() if line.strip()]
-        users = []
-        for line in lines:
-            try:
-                item = json.loads(line)
-                users.append(UserData(**item))
-            except Exception:
-                continue
-        return trim_per_host(users)
-    except Exception:
-        return []
-
-
-def save_state(users: List[UserData]):
-    users = trim_per_host(users)
-    with open(STATE_FILE, "w", encoding="utf-8") as f:
-        for u in users:
-            f.write(json.dumps(u.__dict__) + "\n")
-
-
-def trim_per_host(users: List[UserData]) -> List[UserData]:
-    """Keep only the last PER_HOST_LIMIT users per host, preserving overall order."""
-    seen = {}
-    kept_reversed: List[UserData] = []
-    for u in reversed(users):
-        count = seen.get(u.host, 0)
-        if count < PER_HOST_LIMIT:
-            kept_reversed.append(u)
-            seen[u.host] = count + 1
-    return list(reversed(kept_reversed))
-
-
 def main():
     parser = argparse.ArgumentParser()
     parser.add_argument("action", choices=["check", "put", "get"])
@@ -878,3 +837,4 @@ def main():
 
 if __name__ == "__main__":
     main()
+
