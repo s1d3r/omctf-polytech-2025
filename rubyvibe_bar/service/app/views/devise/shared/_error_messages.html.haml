@@ -1,0 +1,6 @@
+- if resource.errors.any?
+  .form__error
+    %p= "#{resource.errors.count} ошибок не дали сохранить изменения:"
+    %ul
+      - resource.errors.full_messages.each do |message|
+        %li= message

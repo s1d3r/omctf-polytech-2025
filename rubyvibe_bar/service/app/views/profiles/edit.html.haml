@@ -1,0 +1,17 @@
+%section.tavern-card.avatar-edit-card
+  .card-header
+    %h1.page-title Изменить аватар
+  = form_with model: current_user, url: profile_path, local: true, method: :patch, html: { class: "form" } do |f|
+    .form__field.avatar-upload
+      = f.label :avatar, "Новый аватар", class: "form__label"
+      .upload-tile
+        .upload-tile__preview
+          - if current_user.avatar.attached?
+            = image_tag current_user.avatar.variant(resize_to_fill: [160, 160]).processed, alt: current_user.nickname, class: "upload-tile__image"
+          - else
+            %span.upload-tile__placeholder= current_user.nickname.to_s.first&.upcase || "?"
+        .upload-tile__controls
+          %p.upload-tile__hint Загрузите PNG/JPG/WEBP до 10 МБ
+          = f.file_field :avatar, class: "upload-tile__input", accept: "image/png,image/jpeg,image/webp", id: "avatar_upload"
+          %label.upload-tile__button{ for: "avatar_upload" } Выбрать файл
+    = f.submit "Сохранить", class: "btn btn--primary"

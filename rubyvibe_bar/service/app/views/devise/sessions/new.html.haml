@@ -1,0 +1,26 @@
+%section.auth-card.auth-card--narrow.tavern-card
+  %h1.auth-title Вход в таверну
+  %p.auth-meta Подтвердите свою метку, чтобы вернуться в зал.
+
+  = form_for(resource, as: resource_name, url: session_path(resource_name), html: { class: "form" }) do |f|
+    .form__field
+      = f.label :username, "Username", class: "form__label"
+      = f.text_field :email, autofocus: true, autocomplete: "username", class: "form__input"
+
+    .form__field
+      = f.label :password, "Пароль", class: "form__label"
+      = f.password_field :password, autocomplete: "current-password", class: "form__input"
+
+    - if devise_mapping.rememberable?
+      .form__field.remember-toggle
+        %label.remember-toggle__label
+          = f.check_box :remember_me, class: "remember-toggle__input"
+          %span.remember-toggle__box
+            %span.remember-toggle__glyph *
+          %span.remember-toggle__text Запомнить меня
+
+    = f.submit "Войти", class: "btn btn--primary btn--block"
+
+  %p.auth-meta
+    Впервые здесь?
+    = link_to "Зарегистрироваться", new_registration_path(resource_name)

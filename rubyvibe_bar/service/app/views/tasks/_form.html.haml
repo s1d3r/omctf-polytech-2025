@@ -1,0 +1,37 @@
+- visibility_options = [["Награда видна всем", "public_reward"], ["Награда видна только мне", "private_reward"]]
+
+= form_with model: @task, local: true, html: { class: "form" } do |f|
+  - if @task.errors.any?
+    .form__error
+      %p Произошли ошибки:
+      %ul
+        - @task.errors.full_messages.each do |message|
+          %li= message
+
+  .form__field
+    = f.label :title, "Заголовок задания", class: "form__label"
+    = f.text_field :title, class: "form__input"
+
+  .form__field
+    = f.label :task_type, "Тип задания", class: "form__label"
+    = f.select :task_type, options_for_select([["Обычное", "standard"], ["Лабиринт", "labyrinth"]], @task.task_type || "standard"), {}, class: "form__select form__select--accent"
+
+  .form__field
+    = f.label :description, "Описание", class: "form__label"
+    = f.text_area :description, rows: 8, class: "form__textarea"
+
+  .form__field
+    = f.label :reward, "Награда (флаг/строка)", class: "form__label"
+    = f.text_field :reward, class: "form__input"
+
+  .form__field
+    = f.label :reward_visibility, "Приватное задание", class: "form__label"
+    %label.reward-checkbox
+      = f.check_box :reward_visibility, { class: "reward-checkbox__input", checked: @task.reward_visibility == "private_reward" }, "private_reward", "public_reward"
+      %span.reward-checkbox__box
+        %span.reward-checkbox__mark
+      %span.reward-checkbox__text
+        %span.reward-checkbox__on Приватно
+        %span.reward-checkbox__off Открыто
+
+  = f.submit "Предложить задание", class: "btn btn--primary"

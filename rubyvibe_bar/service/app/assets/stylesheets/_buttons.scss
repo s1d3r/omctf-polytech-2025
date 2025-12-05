@@ -1,0 +1,118 @@
+@import "tokens";
+
+.btn {
+  position: relative;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: $space-2;
+  padding: 0.65rem 1.15rem;
+  border-radius: 14px;
+  border: 1px solid var(--color-border-subtle);
+  font-size: $font-size-sm;
+  font-weight: 600;
+  cursor: pointer;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+  background: linear-gradient(135deg, rgba(26, 20, 16, 0.9), rgba(15, 19, 28, 0.9));
+  color: var(--color-text-primary);
+  backdrop-filter: var(--panel-blur);
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.28);
+  transition: background-color 0.2s ease, color 0.2s ease, box-shadow 0.2s ease, border-color 0.2s ease, transform 0.12s ease;
+  overflow: hidden;
+}
+
+.btn:hover {
+  transform: translateY(-1px);
+  box-shadow: 0 12px 40px rgba(0, 0, 0, 0.45);
+}
+
+.btn:disabled {
+  opacity: 0.6;
+  cursor: not-allowed;
+  box-shadow: none;
+}
+
+.btn--primary {
+  background: linear-gradient(135deg, var(--color-accent-cyan), var(--color-accent-violet));
+  color: var(--color-accent-ink);
+  border-color: rgba(106, 211, 197, 0.55);
+  box-shadow: var(--shadow-neon-cyan);
+}
+
+.btn--primary:hover {
+  box-shadow: 0 0 20px rgba(106, 211, 197, 0.5);
+  color: #0b0d12;
+}
+
+.btn--secondary {
+  background: linear-gradient(135deg, rgba(13, 20, 31, 0.9), rgba(20, 15, 24, 0.95));
+  border-color: var(--color-border-strong);
+  color: var(--color-text-primary);
+  box-shadow: 0 10px 24px rgba(0, 0, 0, 0.25);
+}
+
+.btn--secondary:hover {
+  box-shadow: 0 10px 26px rgba(0, 0, 0, 0.3);
+  border-color: rgba(215, 163, 74, 0.6);
+}
+
+.btn--ghost {
+  background: rgba(255, 255, 255, 0.03);
+  border-style: dashed;
+  color: var(--color-text-secondary);
+  box-shadow: none;
+}
+
+.btn--ghost:hover {
+  border-color: rgba(215, 163, 74, 0.55);
+  color: var(--color-text-primary);
+}
+
+.btn--slim {
+  padding: 0.55rem 0.85rem;
+  font-size: $font-size-xs;
+}
+
+.btn--wide {
+  width: 45%;
+  justify-self: center;
+  text-align: center;
+}
+
+.btn--danger {
+  background: linear-gradient(135deg, #ef4444, #b91c1c);
+  color: #fff;
+  box-shadow: 0 0 18px rgba(239, 68, 68, 0.6);
+}
+
+.btn--sm {
+  padding: 0.35rem 0.75rem;
+  font-size: $font-size-xs;
+}
+
+.btn--block {
+  width: 100%;
+}
+
+.btn:focus-visible {
+  outline: 2px solid var(--color-accent-cyan);
+  outline-offset: 2px;
+}
+
+.badge {
+  display: inline-flex;
+  align-items: center;
+  gap: $space-1;
+  padding: 0.3rem 0.65rem;
+  border-radius: 999px;
+  border: 1px solid rgba(199, 164, 103, 0.3);
+  background: rgba(255, 255, 255, 0.02);
+  font-size: $font-size-xs;
+  letter-spacing: 0.03em;
+  text-transform: uppercase;
+}
+
+.badge--success { border-color: rgba(107, 215, 154, 0.4); color: var(--color-success); box-shadow: none; }
+.badge--muted { color: var(--color-text-muted); }
+.badge--outline { border-color: var(--color-border-strong); box-shadow: none; }

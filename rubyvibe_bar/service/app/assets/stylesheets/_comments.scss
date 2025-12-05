@@ -1,0 +1,58 @@
+@import "tokens";
+
+.comments {
+  display: grid;
+  gap: $space-3;
+}
+
+.comment {
+  display: grid;
+  grid-template-columns: auto 1fr;
+  gap: $space-2;
+  padding: $space-3;
+  background: linear-gradient(135deg, rgba(26, 20, 16, 0.82), rgba(14, 18, 26, 0.82));
+  border: 1px solid rgba(106, 211, 197, 0.18);
+  border-radius: 14px;
+  box-shadow: 0 10px 24px rgba(0, 0, 0, 0.28);
+}
+
+.comment__meta {
+  display: flex;
+  align-items: baseline;
+  gap: $space-2;
+  color: var(--color-text-secondary);
+  font-size: $font-size-sm;
+  letter-spacing: 0.02em;
+}
+
+.comment__text {
+  color: var(--color-text-primary);
+  word-break: break-word;
+  overflow-wrap: anywhere;
+  white-space: pre-wrap;
+}
+
+.comment__actions {
+  text-align: right;
+}
+
+.comments-form {
+  margin-top: $space-4;
+}
+
+.comments-form .btn {
+  margin-top: $space-2;
+}
+
+.comment-title {
+  font-family: "Manrope", system-ui, sans-serif;
+  font-weight: 800;
+  letter-spacing: 0.01em;
+  color: var(--color-text-primary);
+  text-shadow: 0 3px 10px rgba(0, 0, 0, 0.25);
+}
+
+.comments-note {
+  margin-top: $space-3;
+  color: var(--color-text-secondary);
+}

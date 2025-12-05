@@ -1,0 +1,54 @@
+:root {
+  /* База: спокойная древесина и угольный металл */
+  --color-bg-main: #0b0d12;
+  --color-bg-elevated: #10141d;
+  --color-bg-card: #121821;
+  --color-bg-wood: #1a1410;
+  --color-bg-metal: #0f1620;
+
+  /* Акценты: приглушённые неоны */
+  --color-accent-cyan: #6ad3c5;
+  --color-accent-violet: #9f8df2;
+  --color-accent-emerald: #6bd79a;
+  --color-accent-amber: #c7a467;
+  --color-accent-ink: #141824;
+
+  /* Текст */
+  --color-text-primary: #eae6dd;
+  --color-text-secondary: #c0b9b1;
+  --color-text-muted: #8c867f;
+  --color-text-danger: #f2b1b1;
+
+  /* Обводки */
+  --color-border-subtle: rgba(199, 164, 103, 0.2);
+  --color-border-strong: rgba(106, 211, 197, 0.65);
+
+  /* Состояния */
+  --color-success: #6bd79a;
+  --color-warning: #e8c67a;
+  --color-danger: #e45a5a;
+
+  /* Подсветка / эффекты */
+  --shadow-neon-cyan: 0 0 16px rgba(106, 211, 197, 0.35);
+  --shadow-neon-violet: 0 0 16px rgba(159, 141, 242, 0.35);
+  --shadow-neon-amber: 0 0 14px rgba(199, 164, 103, 0.3);
+  --shadow-neon-emerald: 0 0 14px rgba(107, 215, 154, 0.3);
+  --panel-blur: blur(10px);
+  --panel-border: 1px solid rgba(255, 255, 255, 0.05);
+  --panel-glass: rgba(14, 14, 18, 0.78);
+}
+
+$font-size-xs: 0.7rem;    // ~11px
+$font-size-sm: 0.85rem;   // ~14px
+$font-size-base: 0.95rem; // ~15px
+$font-size-lg: 1.05rem;   // ~17px
+$font-size-xl: 1.2rem;    // ~19px
+$font-size-2xl: 1.35rem;  // ~22px
+$font-size-3xl: 1.6rem;   // ~26px
+
+$space-1: 0.25rem;
+$space-2: 0.5rem;
+$space-3: 0.75rem;
+$space-4: 1rem;
+$space-6: 1.5rem;
+$space-8: 2rem;

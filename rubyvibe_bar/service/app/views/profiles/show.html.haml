@@ -1,0 +1,27 @@
+%section.tavern-card.profile-card.profile-card--grid
+  .card-header
+    %h1.page-title Мой профиль
+
+  .profile-top
+    .profile-avatar
+      = avatar_tag_for(current_user, size: :large)
+      %span.profile-username= current_user.nickname
+    .profile-details
+      .profile-stats
+        %span.badge.badge--outline.badge--lg Созданных заданий: #{current_user.tasks.count}
+        %span.badge.badge--muted.badge--lg UID: #{current_user.id}
+
+  .profile-upload
+    %h3.profile-upload__title Аватар
+    = form_with model: current_user, url: profile_path, local: true, method: :patch, html: { class: "upload-inline" } do |f|
+      .upload-tile
+        .upload-tile__preview
+          - if current_user.avatar.attached?
+            = image_tag current_user.avatar.variant(resize_to_fill: [120, 120]).processed, alt: current_user.nickname, class: "upload-tile__image"
+          - else
+            %span.upload-tile__placeholder= current_user.nickname.to_s.first&.upcase || "?"
+        .upload-tile__controls
+          %p.upload-tile__hint PNG/JPG/WEBP до 10 МБ
+          = f.file_field :avatar, class: "upload-tile__input", accept: "image/png,image/jpeg,image/webp", id: "avatar_upload_inline"
+          %label.upload-tile__button{ for: "avatar_upload_inline" } Выбрать файл
+      = f.submit "Сохранить", class: "btn btn--primary upload-inline__submit"

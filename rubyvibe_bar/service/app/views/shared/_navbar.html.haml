@@ -1,0 +1,34 @@
+- content_for :navbar_js do
+  :javascript
+    document.addEventListener("turbo:load", () => {
+      const nav = document.querySelector(".navbar");
+      const burger = document.querySelector(".navbar__burger");
+      if (burger && nav) {
+        burger.addEventListener("click", () => {
+          nav.classList.toggle("is-open");
+        });
+      }
+    });
+
+.navbar
+  %a.navbar__brand{ href: root_path }
+    .navbar__brand-logo
+      = image_tag "/logo.png", alt: "The RubyVibe Bar", class: "navbar__brand-mark"
+    .navbar__brand-text
+      %strong The RubyVibe Bar
+  %button.navbar__burger{ "aria-label": "Открыть меню" }
+    ☰
+  .navbar__links
+    = link_to "Задания", tasks_path, class: "navbar__link"
+    - if user_signed_in?
+      = link_to "Создать задание", new_task_path, class: "navbar__link"
+    = link_to "О таверне", about_path, class: "navbar__link"
+  .navbar__actions
+    - if user_signed_in?
+      = link_to profile_path, class: "navbar__user" do
+        = avatar_tag_for(current_user, size: :small)
+        %span= current_user.nickname
+      = link_to "Выйти", destroy_user_session_path, data: { turbo_method: :delete }, class: "btn btn--secondary"
+    - else
+      = link_to "Войти", new_user_session_path, class: "btn btn--ghost"
+      = link_to "Регистрация", new_user_registration_path, class: "btn btn--primary"

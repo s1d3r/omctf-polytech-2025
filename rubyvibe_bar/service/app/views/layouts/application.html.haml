@@ -1,0 +1,31 @@
+!!!
+%html
+  %head
+    %meta{ charset: "UTF-8" }
+    %meta{ name: "viewport", content: "width=device-width, initial-scale=1.0" }
+    %title The RubyVibe Bar
+    %link{ rel: "preconnect", href: "https://fonts.googleapis.com" }
+    %link{ rel: "preconnect", href: "https://fonts.gstatic.com", crossorigin: true }
+    %link{ rel: "stylesheet", href: "https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700&family=Cinzel:wght@600;700&display=swap" }
+    = csrf_meta_tags
+    = csp_meta_tag
+    = stylesheet_link_tag "application", "data-turbo-track": "reload"
+    = javascript_importmap_tags
+  %body.tavern-body
+    %header.tavern-header
+      .container
+        = render "shared/navbar"
+    .tavern-main-wrapper
+      %main.tavern-main
+        .container
+          #flash-container{ data: { controller: "flash-toasts" } }
+            = render "shared/flash"
+          = yield
+    #modal-container
+    %footer.tavern-footer
+      .container
+        %p.footer-text
+          The old tavern stays awake in the neon night...
+          %br/
+          This service was brought to you by s1d3r and s1llya. © #{Time.current.year}
+    = yield :navbar_js

@@ -1,0 +1,9 @@
+.comment
+  = avatar_tag_for(comment.user, size: :small)
+  %div
+    .comment__meta
+      %span= comment.user.nickname
+      - if user_signed_in? && (current_user == comment.user || current_user == task.user)
+        .comment__actions
+          = link_to "Удалить", task_comment_path(task, comment), data: { turbo_method: :delete, turbo_confirm: "Удалить сообщение?", turbo_confirm_style: "modal" }, class: "btn btn--ghost btn--sm", method: :delete
+    .comment__text= raw(comment.body)

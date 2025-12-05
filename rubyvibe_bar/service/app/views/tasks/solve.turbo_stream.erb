@@ -1,0 +1,7 @@
+<%= turbo_stream.replace "reward_panel" do %>
+  <%= render partial: "tasks/reward_panel", locals: { task: @task, can_view_reward: @can_view_reward } %>
+<% end %>
+
+<%= turbo_stream.update "flash-container" do %>
+  <%= render "shared/flash" %>
+<% end %>

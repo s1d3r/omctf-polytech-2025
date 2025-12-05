@@ -1,0 +1,9 @@
+- can_view_reward ||= false
+.card-section
+  %h3 Награда
+  - if can_view_reward
+    .reward-panel
+      %div.reward-panel__text= task.reward
+  - else
+    .reward-panel.reward-panel--hidden
+      Тайная награда, скрытая тенью таверны

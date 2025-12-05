@@ -1,0 +1,24 @@
+%section
+  .card-header
+    %h1.page-title Задания таверны
+    - if user_signed_in?
+      = link_to "Создать задание", new_task_path, class: "btn btn--primary"
+
+  .tasks-list
+    - @tasks.each do |task|
+      - author = task.user
+      .task-card.tavern-card
+        .task-card__header
+          %h2.task-card__title= link_to task.title, task_path(task)
+          .task-card__meta
+            - if author
+              = avatar_tag_for(author, size: :small, html_options: { title: author.nickname, "aria-label": author.nickname, data: { label: author.nickname } })
+            - else
+              %span.task-card__author Удалённый автор
+        .task-card__body
+          %p.task-card__description= truncate(task.description, length: 180)
+        .task-card__footer
+          .task-card__status
+            - reward_label = task.public_reward? ? "Награда открыта" : "Награда скрыта"
+            %span.reward-status{ class: task.public_reward? ? "reward-status--open" : "reward-status--locked", role: "img", "aria-label": reward_label, data: { label: reward_label } }
+          = link_to "Открыть квест", task_path(task), class: "btn btn--secondary"

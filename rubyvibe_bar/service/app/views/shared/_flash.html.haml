@@ -1,0 +1,7 @@
+- flash.each do |type, message|
+  - is_toast = type.to_s.start_with?("toast")
+  - toast_kind = type.to_s.sub("toast_", "") if is_toast
+  - extra_class = is_toast ? "flash--toast" : nil
+  .flash{ class: [type, extra_class].compact.join(" "), data: (is_toast ? { toast_type: toast_kind, toast_message: message } : {}), style: (is_toast ? "display:none;" : nil) }
+    - unless is_toast
+      = message
