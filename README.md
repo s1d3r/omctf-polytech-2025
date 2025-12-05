@@ -14,7 +14,7 @@
 
 ## Как поднять локально
 1. Перейти в `service/`.
-2. Запустить `docker-compose up --build`.
+2. Запустить `docker-compose up -d --build`.
 3. Эксплойты и детали атак — в `sploits/README.md`.
 
 ## ⭐ Интересный факт
