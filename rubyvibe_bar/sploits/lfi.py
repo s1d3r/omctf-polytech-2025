@@ -20,7 +20,7 @@ def main():
             tmp.flush()
 
             with sqlite3.connect(tmp.name) as conn:
-                cur = conn.execute("SELECT reward FROM tasks ORDER BY reward DESC LIMIT 5;")
+                cur = conn.execute("SELECT reward FROM tasks ORDER BY reward DESC LIMIT 10;")
                 rows = cur.fetchall()
                 print([row[0] for row in rows], flush=True)
 
