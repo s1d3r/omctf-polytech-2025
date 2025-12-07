@@ -1,5 +1,7 @@
 # OmCTF.Polytech2025 Finals — Attack/Defense 🚩
 
+![ForcAD Scoreboard](scoreboard.png)
+
 Репозиторий сервиса "The RubyVibe Bar" с OmCTF.Polytech2025 Finals.
 
 ## Что внутри
