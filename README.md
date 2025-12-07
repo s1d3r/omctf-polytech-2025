@@ -2,17 +2,17 @@
 
 ![ForcAD Scoreboard](scoreboard.png)
 
-Репозиторий сервиса "The RubyVibe Bar" с OmCTF.Polytech2025 Finals.
+# Сервис "The RubyVibe Bar"
 
-## Что внутри
+## Структура файлов
 - `service/` — основной сервис.
 - `checker/` — ForcAD чекер.
 - `sploits/` — рабочие эксплойты и описания по уязвимостям.
 
 ## Уязвимости
-- LFI в обработчике аватаров (`app/helpers/application_helper.rb`): параметр `file` без валидации, можно читать любой путь, включая `rails/storage/production.sqlite3`. Эксплойт: `sploits/lfi.py`.
-- XSS в комментариях (`app/views/tasks/_comment.html.haml`): `raw(comment.body)` без санитизации, позволяет красть флаги со страниц задач. Эксплойт: `sploits/xss.py`.
-- PPC-автоматизация: скрипт `sploits/ppc.py` сам регистрируется, логинится, решает лабиринты через BFS и собирает награды.
+- **The RubyVibe Bar** — LFI в обработчике аватаров (`app/helpers/application_helper.rb`): параметр `file` без валидации, можно читать любой путь, включая `rails/storage/production.sqlite3`. Эксплойт: `sploits/lfi.py`.
+- **The RubyVibe Bar** — XSS в комментариях (`app/views/tasks/_comment.html.haml`): `raw(comment.body)` без санитизации, позволяет красть флаги со страниц задач. Эксплойт: `sploits/xss.py`.
+- **The RubyVibe Bar** — PPC-автоматизация: скрипт `sploits/ppc.py` сам регистрируется, логинится, решает лабиринты через BFS и собирает награды.
 
 ## Как поднять локально
 1. Перейти в `service/`.
