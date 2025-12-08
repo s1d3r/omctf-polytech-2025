@@ -1,0 +1,45 @@
+services:
+  event_todo_backend:
+    build:
+      context: ./service/backend
+      dockerfile: Dockerfile
+    container_name: event_todo_backend
+    restart: always
+    ports:
+      - "1337:1337"
+    environment:
+      DATABASE_HOST: mariadb
+      DATABASE_PORT: 3306
+      DATABASE_USER: event_user
+      DATABASE_PASSWORD: event_password
+      DATABASE_NAME: event_todo
+    depends_on:
+      - mariadb
+
+  event_todo_frontend:
+    build:
+      context: ./service/frontend
+      dockerfile: Dockerfile
+    container_name: event_todo_frontend
+    restart: always
+    ports:
+      - "5000:5000"
+    depends_on:
+      - event_todo_backend
+
+  mariadb:
+    image: mariadb:10.11
+    container_name: event_todo_db
+    restart: always
+    environment:
+      MYSQL_ROOT_PASSWORD: rootpassword     
+      MYSQL_DATABASE: event_todo            
+      MYSQL_USER: event_user                
+      MYSQL_PASSWORD: event_password      
+    volumes:
+      - ./db/init.sql:/docker-entrypoint-initdb.d/init.sql:ro
+      - mariadb_data:/var/lib/mysql
+    command: --character-set-server=utf8mb4 --collation-server=utf8mb4_unicode_ci
+
+volumes:
+  mariadb_data:

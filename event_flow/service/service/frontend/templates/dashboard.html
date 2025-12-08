@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/background.css') }}">
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/dashboard.css') }}">
+    <title>EventFlow</title>
+</head>
+<body>
+    <canvas id="particle-canvas"></canvas>
+    <header class="header">
+        <div class="header-container">
+            <div class="logo">
+                EventFlow
+            </div>
+        </div>
+    </header>
+
+
+
+    <div id="events-container" class="container"></div>
+
+
+    <div id="modal" class="hidden"></div>
+
+    <div class="menu">
+        <a href="/" class="home">Home</a>
+        <a href="/profile" class="profile">Profile</a>
+        <a href="/logout" class="logout">Logout</a>
+    </div>
+    
+
+    <script src="{{ url_for('static', filename='js/background.js') }}"></script>
+    <script src="{{ url_for('static', filename='js/dashboard.js') }}"></script>
+    <script src="{{ url_for('static', filename='js/logout.js') }}"></script>
+</body>
+</html>

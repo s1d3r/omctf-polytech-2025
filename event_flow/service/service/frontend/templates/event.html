@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="/static/css/background.css">
+    <link rel="stylesheet" href="/static/css/event.css">
+    <title>EventFlow</title>
+</head>
+<body>
+    <canvas id="particle-canvas"></canvas>
+    <header class="header">
+        <div class="header-container">
+            <div class="logo">EventFlow</div>
+        </div>
+    </header>
+
+    <div class="event-panel-wrapper">
+        <main class="event-panel" id="event-root">
+            <div>
+                <div class="event-header">
+                    <div class="event-title">
+                        <h1 class="title-h1"></h1>
+                    </div>
+                </div>
+            </div>
+
+            <div class="meta">
+                <div class="meta-row">
+                    <div class="meta_block">
+                        <h3>Status : </h3>
+                        <input type="text" class="meta-input" id="status-input">
+                    </div>
+                </div>
+
+                <div class="meta-row">
+                    <div class="meta_block">
+                        <h3>Date: </h3>
+                        <input type="date" class="meta-input" id="date-input">
+                    </div>
+                </div>
+
+                <div class="meta-row">
+                    <div class="meta_block">
+                        <h3>Time: </h3>
+                        <input type="time" class="meta-input" id="time-input">
+                    </div>
+                </div>
+
+                <div class="meta-row">
+                    <div class="meta_block">
+                        <h3>Address: </h3>
+                        <input type="text" class="meta-input" id="address-input">
+                    </div>
+                </div>
+            </div>
+
+            <div class="owner">
+                <h3>Head Organizator: </h3>
+                <p id="owner-username"></p>
+            </div>
+
+            <div class="description">
+                <h3>Description:</h3>
+                <textarea id="description-textarea"></textarea>
+            </div>
+
+            <div id="save-btn" class="save-btn-wrapper">
+                <button class="btn">Save</button>
+            </div>
+
+            <div id="join-btn" class="save-btn-wrapper">
+                <button class="btn">Join</button>
+            </div>
+        </main>
+    </div>
+
+    <div class="event-panel-wrapper event-panel-wrapper-2">
+        <main class="event-panel" id="tasks-root">
+            <h1>Tasks</h1>
+            <div class="tasks-section">
+                <div class="tasks-container"></div>
+                <div class="task-form">
+                    <h3>Add task</h3>
+                    <input type="text" placeholder="Task name">
+                    <select>
+                        <option>Low</option>
+                        <option>Medium</option>
+                        <option>High</option>
+                        <option>Critical</option>
+                    </select>
+                    <input type="text" placeholder="Assigned to ...">
+                    <input type="date">
+                    <button class="add-task-btn">Add</button>
+                </div>
+            </div>
+        </main>
+    </div>
+
+    <div class="event-panel-wrapper event-panel-wrapper-3">
+        <main class="event-panel" id="tasks-root">
+            <h1>History</h1>
+            <div class="tasks-section">
+                <div class="history-container"></div>
+            </div>
+        </main>
+    </div>
+
+    <div id="mini-modal" class="mini-modal"></div>
+    <div id="modal" class="hidden"></div>
+
+    <div class="menu">
+        <a href="/" class="home">Home</a>
+        <a href="/dashboard" class="profile">Dashboard</a>
+        <a href="/profile" class="profile">Profile</a>
+        <a href="/logout" class="logout">Logout</a>
+    </div>
+
+    <script src="/static/js/background.js"></script>
+    <script src="/static/js/event.js"></script>
+    <script src="{{ url_for('static', filename='js/logout.js') }}"></script>
+</body>
+</html>

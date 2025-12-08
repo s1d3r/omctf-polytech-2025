@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/background.css') }}">
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/register.css') }}">
+    
+    <title>EventFlow - SignUp</title>
+</head>
+<body>
+    <canvas id="particle-canvas"></canvas>
+
+
+    <div class="card">
+        <h2 class="card-title">SignUp</h2>
+    
+        <div class="inputs">
+            <form id="register-form">   
+    
+                <div class="input-group">
+                    <input type="text" placeholder="First name" name="first_name" id="first_name" required>
+                    <input type="text" placeholder="Second name" name="second_name" id="second_name" required>
+                </div>
+    
+                <div class="input-group">
+                    <input type="email" placeholder="Email" name="email" id="email" required>
+                    <input type="text" placeholder="Username" name="username" id="username" required>
+                </div>
+    
+                <div class="input-group">
+                    <input type="password" placeholder="Password" name="password" id="password" required>
+                </div>
+    
+                <button type="submit" class="btn btn-primary">SignUp</button>
+    
+                <p class="account">
+                    Already have account? <a href='/login'>SignIn</a>
+                </p>
+            </form> 
+        </div>
+    </div>
+
+    <div id="mini-modal" class="mini-modal"></div>
+
+    <script src="{{ url_for('static', filename='js/background.js') }}"></script>
+    <script src="{{ url_for('static', filename='js/register.js') }}"></script>
+</body>
+</html>

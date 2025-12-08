@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Page Not Found</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/background.css') }}">
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/error.css') }}">
+    
+</head>
+<body>
+    <canvas id="particle-canvas"></canvas>
+
+    <div class="card">
+        <h1 class="card-title">{{ status_code }}</h1>
+        <p>{{ status_text }}</p>
+        <div class="buttons">
+            <a href="/dashboard" class="btn btn-primary">Go Home</a>
+        </div>
+    </div>
+
+
+    <script src="{{ url_for('static', filename='js/background.js') }}"></script>
+</body>
+</html>

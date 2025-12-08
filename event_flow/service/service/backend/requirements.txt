@@ -1,0 +1,6 @@
+flask
+waitress
+mysql-connector-python
+PyJWT
+flask-cors
+bcrypt

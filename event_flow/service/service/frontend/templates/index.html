@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/background.css') }}">
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/index.css') }}">
+    
+    <title>EventFlow</title>
+</head>
+<body>
+    <canvas id="particle-canvas"></canvas>
+
+
+    <div class="card">
+        <h2 class="card-title">EventFlow</h2>
+        <p>EventFlow is a modern web application for managing events and tasks. It allows teams to create events, assign tasks, track progress, and collaborate efficiently — all in one streamlined platform. With clear role management and real-time updates, EventFlow helps organizers and teams stay organized and productive.</p>
+        <div class="buttons"" id="unauth">
+            <a href="/login" class="btn">SignIn</a>
+            <a href="/register" class="btn btn-primary">SignUp</a>
+        </div>
+
+        <div class="hidden" id="auth">
+            <a href="/dashboard" class="btn">Dashboard</a>
+        </div>
+
+    </div>
+
+    <script src="{{ url_for('static', filename='js/index.js') }}"></script>
+    <script src="{{ url_for('static', filename='js/background.js') }}"></script>
+</body>
+</html>

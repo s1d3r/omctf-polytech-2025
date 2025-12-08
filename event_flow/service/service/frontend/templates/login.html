@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang='en'>
+<head>
+    <meta charset='UTF-8'>
+    <meta name='viewport' content='width=device-width, initial-scale=1.0'>
+    <link rel='stylesheet' href='{{ url_for('static', filename='css/background.css') }}'>
+    <link rel='stylesheet' href='{{ url_for('static', filename='css/login.css') }}'>
+    
+    <title>EventFlow - SignIn</title>
+</head>
+<body>
+    <canvas id='particle-canvas'></canvas>
+
+
+    <div class='card'>
+        <h2 class='card-title'>SignIn</h2>
+    
+        <div class='inputs'>
+            <form id="login-form">
+                <input type='text' placeholder='Username' name='username' id='username' required>
+                <input type='password' placeholder='Password' name='password' id='password' required>
+    
+                <button type="submit" class='btn btn-primary'>SignIn</button>
+    
+                <p class="account">
+                    Don't have account? <a href='/register'>SignUp</a>
+                </p>
+            </form>
+        </div>
+    </div>
+
+    <div id="mini-modal" class="mini-modal"></div>
+
+    <script src='{{ url_for('static', filename='js/background.js') }}'></script>
+    <script src='{{ url_for('static', filename='js/login.js') }}'></script>
+</body>
+</html>

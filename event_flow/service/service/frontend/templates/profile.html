@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=divice-width, initial-scale=1.0">
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/background.css') }}">
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/profile.css') }}">
+    
+    <title>EventFlow</title>
+</head>
+<body>
+    <canvas id="particle-canvas"></canvas>
+    <header class="header">
+        <div class="header-container">
+            <div class="logo">
+                EventFlow
+            </div>
+        </div>
+    </header>
+
+    <div class="profile-container">
+        <div class="profile-card">
+            <div class="profile-avatar">
+                <img id="user-avatar" src="/static/images/avatar-default.svg" alt="Avatar">
+            </div>
+            <div class="profile-info">
+                <h2 id="user-username">Username</h2>
+                <p id="user-first">First Name</p>
+                <p id="user-second">Second Name</p>
+                <p id="user-email">Email</p>
+                <p id="user-role">Role</p>
+                <button id="edit-profile-btn">Edit Profile</button>
+            </div>
+        </div>
+    </div>
+
+    <div id="modal" class="hidden"></div>
+    <div id="mini-modal" class="mini-modal"></div>
+
+    <div class="menu">
+        <a href="/" class="home">Home</a>
+        <a href="/dashboard" class="profile">Dashboard</a>
+        <a href="/logout" class="logout">Logout</a>
+    </div>
+    
+
+    <script src="{{ url_for('static', filename='js/background.js') }}"></script>
+    <script src="{{ url_for('static', filename='js/profile.js') }}"></script>
+    <script src="{{ url_for('static', filename='js/logout.js') }}"></script>
+</body>
+</html>
