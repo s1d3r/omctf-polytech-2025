@@ -1,9 +1,8 @@
-# 1. Predictable Generating Invitecode
+# 1. Predictable Invite Сode Generation
 
 ## Описание:
 
 > Уязвимость позволяет присоедениться к любому мероприятию из за предсказуемой генерации инвайткода.
-
 
 Уязвимость находится в файле `service/backend/utils/utils.py`:
 ```python
@@ -19,7 +18,7 @@ def make_invitecode(username, title):
 
 [Эксплойт (predictable_invitecode.py)](./predictable_invitecode.py)
 
-# 2. HTTP Parameter Pollution
+# 2. Mass Assignment
 
 ## Описание:
 
