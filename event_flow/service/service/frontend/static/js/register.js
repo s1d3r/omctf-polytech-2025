@@ -15,7 +15,7 @@ document.addEventListener("DOMContentLoaded", () => {
         };
 
         try {
-            const response = await fetch("http://10.14.9.50:1337/api/register", {
+            const response = await fetch(`http://${window.location.hostname}:1337/api/register`, {
                 method: "POST",
                 headers: { "Content-Type": "application/json" },
                 body: JSON.stringify(data)

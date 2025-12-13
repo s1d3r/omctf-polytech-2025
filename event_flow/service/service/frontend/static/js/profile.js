@@ -8,7 +8,7 @@ const token = localStorage.getItem("access_token");
 
 async function loadUser() {
     try {
-        const res = await fetch("http://10.14.9.50:1337/api/user",  { headers: {"Authorization": `Bearer ${token}`} });
+        const res = await fetch(`http://${window.location.hostname}:1337/api/user`,  { headers: {"Authorization": `Bearer ${token}`} });
         if (res.status == 401) { window.location.href = '/login';}
         if (!res.ok) throw new Error("Cannot load user");
 
@@ -99,7 +99,7 @@ function openAddEventModal() {
         }
 
 
-        fetch("http://10.14.9.50:1337/api/user/update", { method: "POST",headers: { "Content-Type": "application/json", "Authorization": `Bearer ${token}` }, body: JSON.stringify(
+        fetch(`http://${window.location.hostname}:1337/api/user/update`, { method: "POST",headers: { "Content-Type": "application/json", "Authorization": `Bearer ${token}` }, body: JSON.stringify(
             { 
                 first_name: firstName, 
                 second_name: secondName, 

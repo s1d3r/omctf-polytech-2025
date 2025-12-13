@@ -6,9 +6,9 @@ from waitress import serve
 
 app = Flask(__name__)
 
-CORS(app,
-     origins=["http://10.14.9.50:5000"],
-     supports_credentials=True)         
+# Allow requests from any origin so the frontend can reach the API from other ports/hosts,
+# and include credentials for authenticated calls.
+CORS(app, supports_credentials=True)
 
 
 app.register_blueprint(api_bp)

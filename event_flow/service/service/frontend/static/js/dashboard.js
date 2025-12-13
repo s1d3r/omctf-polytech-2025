@@ -7,7 +7,7 @@ const token = localStorage.getItem("access_token");
 
 async function loadEvents() {
     try {
-        const response = await fetch("http://10.14.9.50:1337/api/events", { headers: {"Authorization": `Bearer ${token}`} });
+        const response = await fetch(`http://${window.location.hostname}:1337/api/events`, { headers: {"Authorization": `Bearer ${token}`} });
         if (response.status == 401) { window.location.href = '/login';}
         if (!response.ok) throw new Error("Cannot load /api/events");
 
@@ -148,7 +148,7 @@ function openAddEventModal() {
             openErrorModalEmptyValue()
             return;
         }
-        fetch("http://10.14.9.50:1337/api/event/add", {
+        fetch(`http://${window.location.hostname}:1337/api/event/add`, {
             method: "POST",
             headers: { 
                 "Content-Type": "application/json",
